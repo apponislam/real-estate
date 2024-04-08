@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Roboto Slab", serif;
+}
+
+.menu li > *:not(ul, .menu-title, details, .btn):active,
+.menu li > *:not(ul, .menu-title, details, .btn).active,
+.menu li > details > summary:active {
+    --tw-bg-opacity: 1;
+    background-color: #4b87fd;
+    --tw-text-opacity: 1;
+    color: white;
+}
+
+.menu li > *:not(ul, .menu-title, details, .btn):hover,
+.menu li > *:not(ul, .menu-title, details, .btn).hover,
+.menu li > details > summary:hover {
+    background-color: #0356f9;
+    color: white;
+}

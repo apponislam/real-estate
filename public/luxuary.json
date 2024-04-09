@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "estate_title": "Luxury Penthouse with Ocean View",
+        "segment_name": "Penthouse",
+        "description": "A stunning penthouse with breathtaking ocean views.",
+        "price": "$5,000,000",
+        "status": "sale",
+        "area": "3000 sq ft",
+        "location": "Miami, Florida",
+        "facilities": ["Spacious living room", "Infinity pool", "Gourmet kitchen"],
+        "image": "https://i.ibb.co/ZYLLLB0/Luxury-Penthouse-with-Ocean-View.png"
+    },
+    {
+        "id": 2,
+        "estate_title": "Exclusive Beachfront Villa",
+        "segment_name": "Villa",
+        "description": "An exclusive villa right on the beach, perfect for luxury living.",
+        "price": "$8,500,000",
+        "status": "sale",
+        "area": "5000 sq ft",
+        "location": "Maui, Hawaii",
+        "facilities": ["Private beach access", "Tropical gardens", "Entertainment room"],
+        "image": "https://i.ibb.co/SwC8VFS/Exclusive-Beachfront-Villa.png"
+    },
+    {
+        "id": 3,
+        "estate_title": "Luxury Resort Retreat",
+        "segment_name": "Resort",
+        "description": "A luxurious resort offering world-class amenities and services.",
+        "price": "$15,000,000",
+        "status": "sale",
+        "area": "10 acres",
+        "location": "Maldives",
+        "facilities": ["Multiple swimming pools", "Spa and wellness center", "Fine dining restaurants"],
+        "image": "https://i.ibb.co/HBjP1rk/Luxury-Resort-Retreat.png"
+    },
+    {
+        "id": 4,
+        "estate_title": "Private Island Paradise",
+        "segment_name": "Private Island",
+        "description": "Your own private island escape, complete with pristine beaches and lush landscapes.",
+        "price": "$20,000,000",
+        "status": "sale",
+        "area": "50 acres",
+        "location": "Caribbean",
+        "facilities": ["Exclusive beachfront villas", "Yacht marina", "Helipad"],
+        "image": "https://i.ibb.co/YQ0SDCk/Private-Island-Paradise.png"
+    },
+    {
+        "id": 5,
+        "estate_title": "Luxurious Mansion with Panoramic Views",
+        "segment_name": "Mansion",
+        "description": "A grand mansion offering luxury living and stunning panoramic views.",
+        "price": "$12,000,000",
+        "status": "sale",
+        "area": "8000 sq ft",
+        "location": "Los Angeles, California",
+        "facilities": ["Home theater", "Gymnasium", "Wine cellar"],
+        "image": "https://i.ibb.co/s1TV7Gk/Luxurious-Mansion-with-Panoramic-Views.png"
+    },
+    {
+        "id": 6,
+        "estate_title": "Exquisite Villa in Tuscany",
+        "segment_name": "Villa",
+        "description": "An exquisite villa nestled in the beautiful Tuscan countryside.",
+        "price": "$7,500,000",
+        "status": "sale",
+        "area": "6000 sq ft",
+        "location": "Tuscany, Italy",
+        "facilities": ["Vineyard", "Infinity pool", "Outdoor dining terrace"],
+        "image": "https://i.ibb.co/tzWT8Xj/Exquisite-Villa-in-Tuscany.png"
+    },
+    {
+        "id": 7,
+        "estate_title": "Magnificent Mountain Retreat",
+        "segment_name": "Mansion",
+        "description": "A magnificent mountain retreat offering unparalleled luxury and privacy.",
+        "price": "$10,000,000",
+        "status": "sale",
+        "area": "7000 sq ft",
+        "location": "Aspen, Colorado",
+        "facilities": ["Ski-in/ski-out access", "Outdoor hot tub", "Home automation system"],
+        "image": "https://i.ibb.co/dtgNsQV/Magnificent-Mountain-Retreat.png"
+    },
+    {
+        "id": 8,
+        "estate_title": "Stunning Waterfront Estate",
+        "segment_name": "Estate",
+        "description": "A stunning waterfront estate featuring modern design and luxury amenities.",
+        "price": "$9,500,000",
+        "status": "sale",
+        "area": "5500 sq ft",
+        "location": "Sydney, Australia",
+        "facilities": ["Private dock", "Infinity-edge pool", "Rooftop terrace"],
+        "image": "https://i.ibb.co/x21jPdB/Stunning-Waterfront-Estate.png"
+    },
+    {
+        "id": 9,
+        "estate_title": "Luxury Ski Chalet",
+        "segment_name": "Chalet",
+        "description": "A luxury ski chalet offering ski-in/ski-out access and stunning alpine views.",
+        "price": "$6,500,000",
+        "status": "sale",
+        "area": "4000 sq ft",
+        "location": "Courchevel, France",
+        "facilities": ["Sauna", "Fireplace", "Ski equipment storage"],
+        "image": "https://i.ibb.co/5K6390r/Luxury-Ski-Chalet.png"
+    }
+]

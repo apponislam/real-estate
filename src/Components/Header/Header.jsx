@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
     const links = (
@@ -14,6 +16,18 @@ const Header = () => {
             </li>
         </>
     );
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const logOutbtn = () => {
+        logOut()
+            .then(() => {
+                console.log("Successfully logged out");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     return (
         <div className="container mx-auto">
@@ -35,12 +49,28 @@ const Header = () => {
                     <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/signin">
-                        <button className="btn mr-3">Sign In</button>
-                    </Link>
-                    <Link to="/register">
-                        <button className="btn">Sign Up</button>
-                    </Link>
+                    {user ? (
+                        <div className="flex items-center">
+                            <div className="p-1 border-2 rounded-full tooltip tooltip-bottom" data-tip={user.displayName || "Set Your Name"}>
+                                <img className="h-14 rounded-full" src={user.photoURL || "null.png"} />
+                            </div>
+                            <button className="btn ml-3 bg-[#2e3652] border-[#2e3652] hover:bg-[#0356f9] text-white" onClick={logOutbtn}>
+                                Sign Out
+                            </button>
+                            {/* <Link to="/register">
+                                <button className="btn bg-[#4b87fd] border-[#4b87fd] hover:bg-[#0356f9] text-white">{user.email}</button>
+                            </Link> */}
+                        </div>
+                    ) : (
+                        <div>
+                            <Link to="/signin">
+                                <button className="btn mr-3 bg-[#2e3652] border-[#2e3652] hover:bg-[#0356f9] text-white">Sign In</button>
+                            </Link>
+                            <Link to="/register">
+                                <button className="btn bg-[#4b87fd] border-[#4b87fd] hover:bg-[#0356f9] text-white">Sign Up</button>
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

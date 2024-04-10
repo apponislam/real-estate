@@ -13,6 +13,8 @@ import UpdateProfile from "./Components/UpdateProfile.jsx/UpdateProfile.jsx";
 import NonSignIn from "./PrivateRoutes/NonSignIn.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import Profile from "./Components/Profile/Profile.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,7 @@ const router = createBrowserRouter([
                 element: (
                     <SignInProtect>
                         <SignIn></SignIn>
+                        <ToastContainer />
                     </SignInProtect>
                 ),
             },

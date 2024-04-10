@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignInProtect = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
@@ -19,7 +21,12 @@ const SignInProtect = ({ children }) => {
         return children;
     }
 
-    return <Navigate to="/"></Navigate>;
+    return (
+        <div>
+            <Navigate to="/"></Navigate>
+            <ToastContainer />
+        </div>
+    );
 };
 
 SignInProtect.propTypes = {

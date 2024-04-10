@@ -2,12 +2,14 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+    const [successLogin, setSuccessLogin] = useState(false);
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -36,11 +38,16 @@ const AuthProvider = ({ children }) => {
             console.log(mainUser);
             setUser(mainUser);
             setLoading(false);
+            if (successLogin) {
+                // console.log("login success");
+                toast.success("Login successfully");
+            }
+            setSuccessLogin(false);
         });
         return () => unSubscribe();
-    }, []);
+    }, [successLogin]);
 
-    const authInfo = { user, setUser, createUser, signInUser, logOut, googleSignIn, loading, setLoading };
+    const authInfo = { user, setUser, createUser, signInUser, logOut, googleSignIn, loading, setLoading, setSuccessLogin };
 
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };

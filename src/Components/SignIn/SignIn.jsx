@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
-    const { signInUser, googleSignIn } = useContext(AuthContext);
+    const { signInUser, googleSignIn, setSuccessLogin } = useContext(AuthContext);
 
     const logInBtn = (e) => {
         e.preventDefault();
@@ -18,7 +18,9 @@ const SignIn = () => {
         signInUser(email, password)
             .then((result) => {
                 console.log(result.user);
-                e.target.reset();
+                setSuccessLogin(true);
+                // toast.success("login successfully");
+                // e.target.reset();
             })
             .catch((error) => {
                 console.log(error.message);
@@ -29,6 +31,9 @@ const SignIn = () => {
         googleSignIn()
             .then((result) => {
                 console.log(result.user);
+                // toast.success("login successfully");
+                setSuccessLogin(true);
+                // alert("login successfully");
             })
             .catch((error) => {
                 console.log(error);

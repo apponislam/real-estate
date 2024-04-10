@@ -8,6 +8,11 @@ import SignIn from "./Components/SignIn/SignIn.jsx";
 import Register from "./Components/Register/Register.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Errorpage from "./Components/Errorpage/Errorpage.jsx";
+import SignInProtect from "./PrivateRoutes/SignInProtect.jsx";
+import UpdateProfile from "./Components/UpdateProfile.jsx/UpdateProfile.jsx";
+import NonSignIn from "./PrivateRoutes/NonSignIn.jsx";
+import { HelmetProvider } from "react-helmet-async";
+import Profile from "./Components/Profile/Profile.jsx";
 
 const router = createBrowserRouter([
     {
@@ -21,11 +26,35 @@ const router = createBrowserRouter([
             },
             {
                 path: "/signin",
-                element: <SignIn></SignIn>,
+                element: (
+                    <SignInProtect>
+                        <SignIn></SignIn>
+                    </SignInProtect>
+                ),
             },
             {
                 path: "/register",
-                element: <Register></Register>,
+                element: (
+                    <SignInProtect>
+                        <Register></Register>
+                    </SignInProtect>
+                ),
+            },
+            {
+                path: "/updateprofile",
+                element: (
+                    <NonSignIn>
+                        <UpdateProfile></UpdateProfile>
+                    </NonSignIn>
+                ),
+            },
+            {
+                path: "/profile",
+                element: (
+                    <NonSignIn>
+                        <Profile></Profile>
+                    </NonSignIn>
+                ),
             },
         ],
     },
@@ -33,8 +62,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <AuthProvider>
-            <RouterProvider router={router} />
-        </AuthProvider>
+        <HelmetProvider>
+            <AuthProvider>
+                <RouterProvider router={router} />
+            </AuthProvider>
+        </HelmetProvider>
     </React.StrictMode>
 );

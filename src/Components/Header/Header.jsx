@@ -3,7 +3,42 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
+    const { user, logOut, loading } = useContext(AuthContext);
+
+    if (loading) {
+        return (
+            <div className="container mx-auto">
+                <div className="flex justify-between items-center p-2">
+                    <div className="skeleton h-14 w-64"></div>
+                    <div className="flex items-center gap-2">
+                        <div className="skeleton h-9 w-20"></div>
+                        <div className="skeleton h-9 w-20"></div>
+                        <div className="skeleton h-9 w-20"></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <div className="skeleton h-14 w-24"></div>
+                        <div className="skeleton h-14 w-24"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     const links = (
+        <>
+            <li>
+                <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+                <NavLink to="/profile">Profile</NavLink>
+            </li>
+            <li>
+                <NavLink to="/updateprofile">Update Profile</NavLink>
+            </li>
+        </>
+    );
+
+    const links2 = (
         <>
             <li>
                 <NavLink to="/">Home</NavLink>
@@ -16,8 +51,6 @@ const Header = () => {
             </li>
         </>
     );
-
-    const { user, logOut } = useContext(AuthContext);
 
     const logOutbtn = () => {
         logOut()
@@ -40,19 +73,21 @@ const Header = () => {
                             </svg>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            {links}
+                            {user ? links : links2}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-3xl">Appon Luxury</a>
+                    <Link to="/">
+                        <button className="btn btn-ghost text-3xl">Appon Luxury</button>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
+                    <ul className="menu menu-horizontal px-1 gap-2">{user ? links : links2}</ul>
                 </div>
                 <div className="navbar-end">
                     {user ? (
                         <div className="flex items-center">
-                            <div className="p-1 border-2 rounded-full tooltip tooltip-bottom" data-tip={user.displayName || "Set Your Name"}>
-                                <img className="h-14 rounded-full" src={user.photoURL || "null.png"} />
+                            <div className="p-1 border-2 rounded-full tooltip tooltip-bottom z-50" data-tip={user.displayName || "Set Your Name"}>
+                                <img className="h-11 w-11 rounded-full" src={user.photoURL || "null.png"} />
                             </div>
                             <button className="btn ml-3 bg-[#2e3652] border-[#2e3652] hover:bg-[#0356f9] text-white" onClick={logOutbtn}>
                                 Sign Out

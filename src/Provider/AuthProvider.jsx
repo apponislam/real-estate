@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
 
@@ -27,6 +27,12 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider);
     };
 
+    const githubSignIn = () => {
+        setLoading(true);
+        const githubProvider = new GithubAuthProvider();
+        return signInWithPopup(auth, githubProvider);
+    };
+
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -47,7 +53,7 @@ const AuthProvider = ({ children }) => {
         return () => unSubscribe();
     }, [successLogin]);
 
-    const authInfo = { user, setUser, createUser, signInUser, logOut, googleSignIn, loading, setLoading, setSuccessLogin };
+    const authInfo = { user, setUser, createUser, signInUser, logOut, googleSignIn, loading, setLoading, setSuccessLogin, githubSignIn };
 
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };

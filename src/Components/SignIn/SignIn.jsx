@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
-    const { signInUser, googleSignIn, setSuccessLogin } = useContext(AuthContext);
+    const { signInUser, googleSignIn, setSuccessLogin, githubSignIn } = useContext(AuthContext);
 
     const logInBtn = (e) => {
         e.preventDefault();
@@ -29,6 +29,19 @@ const SignIn = () => {
 
     const googleSignInBtn = () => {
         googleSignIn()
+            .then((result) => {
+                console.log(result.user);
+                // toast.success("login successfully");
+                setSuccessLogin(true);
+                // alert("login successfully");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const githubSignInBtn = () => {
+        githubSignIn()
             .then((result) => {
                 console.log(result.user);
                 // toast.success("login successfully");
@@ -88,7 +101,7 @@ const SignIn = () => {
                                 <button onClick={googleSignInBtn} className="text-3xl p-3 rounded-full shadow-2xl opacity-100	">
                                     <FcGoogle />
                                 </button>
-                                <button className="text-3xl p-3 rounded-full shadow-inner">
+                                <button onClick={githubSignInBtn} className="text-3xl p-3 rounded-full shadow-inner">
                                     <FaGithub />
                                 </button>
                             </div>

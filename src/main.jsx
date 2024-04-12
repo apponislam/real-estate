@@ -24,6 +24,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
+                loader: () => fetch("luxuary.json"),
                 element: <Home></Home>,
             },
             {

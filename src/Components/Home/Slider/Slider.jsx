@@ -20,7 +20,7 @@ const Slider = () => {
                     <div className="h-screen bg-[url('picture1.jpg')] bg-cover">
                         <div className="h-full container mx-auto flex items-center">
                             <div className="bg-white shadow-2xl rounded-2xl p-8" data-aos="fade-right">
-                                <p className="text-xl mb-4">Chorley, United Kingdom</p>
+                                <p className="text-xl mb-4">Miami, Florida</p>
                                 <h1 className="opacity-100 text-[#2e3652] font-bold text-6xl mb-8">
                                     Exquisite Homes <br /> Await You Here
                                 </h1>
@@ -38,7 +38,7 @@ const Slider = () => {
                     <div className="h-screen bg-[url('picture2.jpg')] bg-cover">
                         <div className="h-full container mx-auto flex items-center">
                             <div className="bg-white shadow-2xl rounded-2xl p-8" data-aos="fade-right">
-                                <p className="text-xl mb-4">Chorley, United Kingdom</p>
+                                <p className="text-xl mb-4">Maui, Hawaii</p>
                                 <h1 className="opacity-100 text-[#2e3652] font-bold text-6xl mb-8">
                                     Luxury Living <br /> Redefined for You
                                 </h1>
@@ -56,7 +56,7 @@ const Slider = () => {
                     <div className="h-screen bg-[url('picture3.jpg')] bg-cover">
                         <div className="h-full container mx-auto flex items-center">
                             <div className="bg-white shadow-2xl rounded-2xl p-8" data-aos="fade-right">
-                                <p className="text-xl mb-4">Chorley, United Kingdom</p>
+                                <p className="text-xl mb-4">Maldives</p>
                                 <h1 className="opacity-100 text-[#2e3652] font-bold text-6xl mb-8">
                                     Elegant Homes <br /> for Discerning Buyers
                                 </h1>

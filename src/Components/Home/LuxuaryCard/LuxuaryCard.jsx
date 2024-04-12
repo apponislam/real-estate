@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 import { GiVillage } from "react-icons/gi";
 import { ImLocation } from "react-icons/im";
 import { IoHome } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const LuxuaryCard = ({ luxuary }) => {
-    const { image, estate_title, status, segment_name, location, area, price } = luxuary;
-    console.log(luxuary);
+    const { image, estate_title, status, segment_name, location, area, price, id } = luxuary;
+    // console.log(luxuary);
     return (
         <div className="border border-[#13131326] p-3 md:p-6 rounded-2xl w-auto mx-3 md:mx-0" data-aos="zoom-in-down">
             <div className="mb-4 relative">
@@ -39,7 +40,9 @@ const LuxuaryCard = ({ luxuary }) => {
             <h2 className="mb-4 font-black">
                 Price: <span className="text-[#216c2a]">{price}</span>
             </h2>
-            <button className="btn btn-primary bg-[#0356f9] border-[#0356f9] hover:bg-[#0356f9] rounded-none text-white w-full">View Details</button>
+            <Link to={`/${id}`}>
+                <button className="btn btn-primary bg-[#0356f9] border-[#0356f9] hover:bg-[#0356f9] rounded-none text-white w-full">View Details</button>
+            </Link>
         </div>
     );
 };

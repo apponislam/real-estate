@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { signOut, updateProfile } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,10 +6,12 @@ import { Helmet } from "react-helmet-async";
 import auth from "../../Firebase/firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaEye } from "react-icons/fa";
 
 const Register = () => {
     const { createUser, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
 
     const signUpBtn = (e) => {
         e.preventDefault();
@@ -92,10 +94,17 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="Password" name="password" className="input input-bordered" required />
+                                <div className="relative">
+                                    <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered w-full" required />
+                                    <div onClick={() => setShowPassword(!showPassword)} className="absolute top-1/2 right-2 -translate-x-2/4 -translate-y-2/4">
+                                        <FaEye />
+                                    </div>
+                                </div>
                             </div>
                             <div className="form-control mt-1">
-                                <button className="btn btn-primary bg-[#4b87fd] border-[#4b87fd] hover:bg-[#0356f9] text-white">Register</button>
+                                <button type="submit" className="btn btn-primary bg-[#4b87fd] border-[#4b87fd] hover:bg-[#0356f9] text-white">
+                                    Register
+                                </button>
                             </div>
                             <div className="z-50">
                                 <ToastContainer />

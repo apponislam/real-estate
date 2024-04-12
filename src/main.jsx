@@ -15,6 +15,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Profile from "./Components/Profile/Profile.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LuxuaryDetails from "./Components/Home/LuxuaryDetails/LuxuaryDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -28,11 +29,19 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
+                path: "/:luxuaryId",
+                loader: () => fetch("luxuary.json"),
+                element: (
+                    <NonSignIn>
+                        <LuxuaryDetails></LuxuaryDetails>
+                    </NonSignIn>
+                ),
+            },
+            {
                 path: "/signin",
                 element: (
                     <SignInProtect>
                         <SignIn></SignIn>
-                        <ToastContainer />
                     </SignInProtect>
                 ),
             },
@@ -69,6 +78,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <HelmetProvider>
             <AuthProvider>
                 <RouterProvider router={router} />
+                <ToastContainer />
             </AuthProvider>
         </HelmetProvider>
     </React.StrictMode>

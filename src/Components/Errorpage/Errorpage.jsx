@@ -9,7 +9,7 @@ const Errorpage = () => {
             <div>
                 <h1 className="text-9xl mb-10">Opps</h1>
                 <p className="text-center text-2xl mb-5">
-                    {error.status} - {error.statusText}
+                    {error.status || 404} - {error.statusText || "Page not found"}
                 </p>
                 <div className="flex items-center justify-center">
                     <Link to="/">

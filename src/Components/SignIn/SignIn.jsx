@@ -4,11 +4,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
-    const { signInUser, googleSignIn, setSuccessLogin, githubSignIn } = useContext(AuthContext);
+    const { signInUser, googleSignIn, setSuccessLogin, githubSignIn, setLoading } = useContext(AuthContext);
 
     const logInBtn = (e) => {
         e.preventDefault();
@@ -19,11 +19,12 @@ const SignIn = () => {
             .then((result) => {
                 console.log(result.user);
                 setSuccessLogin(true);
-                // toast.success("login successfully");
-                // e.target.reset();
+                toast.success("login successfully");
             })
             .catch((error) => {
-                console.log(error.message);
+                toast.error("Please enter correct email and password");
+                console.log(error);
+                setLoading(false);
             });
     };
 
@@ -37,6 +38,7 @@ const SignIn = () => {
             })
             .catch((error) => {
                 console.log(error);
+                setLoading(false);
             });
     };
 
@@ -50,6 +52,7 @@ const SignIn = () => {
             })
             .catch((error) => {
                 console.log(error);
+                setLoading(false);
             });
     };
 
@@ -108,8 +111,8 @@ const SignIn = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
-            <ToastContainer />
         </div>
     );
 };

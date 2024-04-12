@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const AuthContext = createContext(null);
 
@@ -45,8 +46,8 @@ const AuthProvider = ({ children }) => {
             setUser(mainUser);
             setLoading(false);
             if (successLogin) {
-                // console.log("login success");
                 toast.success("Login successfully");
+                console.log("login success");
             }
             setSuccessLogin(false);
         });

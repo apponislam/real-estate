@@ -1,10 +1,11 @@
 import "animate.css";
 import { useLoaderData } from "react-router-dom";
 import LuxuaryCard from "../LuxuaryCard/LuxuaryCard";
+import { ToastContainer } from "react-toastify";
 
 const LuxuaryList = () => {
     const luxuaries = useLoaderData();
-    console.log(luxuaries);
+    // console.log(luxuaries);
 
     return (
         <div className="container mx-auto">
@@ -20,6 +21,7 @@ const LuxuaryList = () => {
                     }
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

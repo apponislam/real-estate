@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const AuthContext = createContext(null);
@@ -34,6 +34,11 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, githubProvider);
     };
 
+    const updateUser = (user, profileData) => {
+        setLoading(true);
+        return updateProfile(user, profileData);
+    };
+
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -47,16 +52,21 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
             if (successLogin) {
                 toast.success("Login successfully");
-                console.log("login success");
+                console.log("Successfully logged");
             }
             setSuccessLogin(false);
         });
         return () => unSubscribe();
     }, [successLogin]);
 
-    const authInfo = { user, setUser, createUser, signInUser, logOut, googleSignIn, loading, setLoading, setSuccessLogin, githubSignIn };
+    const authInfo = { user, setUser, createUser, signInUser, logOut, googleSignIn, loading, setLoading, setSuccessLogin, githubSignIn, successLogin, updateUser };
 
-    return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+    return (
+        <div>
+            <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+            <ToastContainer />
+        </div>
+    );
 };
 
 AuthProvider.propTypes = {

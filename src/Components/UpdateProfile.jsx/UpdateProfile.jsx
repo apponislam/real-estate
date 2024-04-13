@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { updateEmail } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import { sendEmailVerification, updateEmail } from "firebase/auth";
 
 const UpdateProfile = () => {
     const { user, updateUser, setLoading } = useContext(AuthContext);
@@ -21,17 +23,21 @@ const UpdateProfile = () => {
         updateUser(user, updatedProfileData)
             .then(() => {
                 console.log("profile updated successfully");
-                updateEmail(user, newemail)
-                    .then(() => {
-                        console.log("profile email update successfully");
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
+                toast.success("profile updated successfully");
+                // sendEmailVerification(user).then(() => {
+                //     updateEmail(user, newemail)
+                //         .then(() => {
+                //             console.log("profile email update successfully");
+                //         })
+                //         .catch((error) => {
+                //             console.log(error);
+                //         });
+                // });
                 setLoading(false);
             })
             .catch((err) => {
                 console.log(err);
+                toast.error("profile update failed");
                 setLoading(false);
             });
     };
@@ -44,7 +50,7 @@ const UpdateProfile = () => {
             <div className="py-24 flex items-center justify-center">
                 <div className="w-7/12">
                     <div className="w-full flex justify-center items-center mb-6">
-                        <div className="shadow-2xl p-6 rounded-xl gap-6 w-2/4" data-aos="fade-down">
+                        <div className="shadow-2xl p-6 rounded-xl gap-6 w-3/4" data-aos="fade-down">
                             <div className="flex justify-center items-center mb-4">
                                 <div className="p-1 border-2 rounded-full border-green-500">
                                     <img className="h-32 w-32 rounded-full" src={user.photoURL || "null.png"} />
@@ -99,6 +105,9 @@ const UpdateProfile = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className="z-50">
+                <ToastContainer />
             </div>
         </div>
     );

@@ -65,7 +65,7 @@ const SignIn = () => {
                     <title>Sign In | Appon Luxury</title>
                 </Helmet>
                 <div className="flex items-center justify-center min-h-screen">
-                    <div className="hero-content flex-col md:w-3/4 lg:w-1/2 2xl:w-1/4">
+                    <div className="hero-content flex-col w-full md:w-3/4 lg:w-1/2 2xl:w-1/4">
                         <div className="text-center">
                             <h1 className="text-3xl md:text-5xl font-bold">Login now!</h1>
                         </div>

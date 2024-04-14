@@ -47,8 +47,8 @@ const UpdateProfile = () => {
             <Helmet>
                 <title>Update your Profile | Appon Luxury</title>
             </Helmet>
-            <div className="py-24 flex items-center justify-center">
-                <div className="w-7/12">
+            <div className="py-12 md:py-24 flex items-center justify-center">
+                <div className="w-full md:w-7/12 mx-4 md:mx-0">
                     <div className="w-full flex justify-center items-center mb-6">
                         <div className="shadow-2xl p-6 rounded-xl gap-6 w-3/4" data-aos="fade-down">
                             <div className="flex justify-center items-center mb-4">
@@ -56,7 +56,7 @@ const UpdateProfile = () => {
                                     <img className="h-32 w-32 rounded-full" src={user.photoURL || "null.png"} />
                                 </div>
                             </div>
-                            <div className="flex items-center justify-between gap-4 flex-1">
+                            <div className="flex lg:items-center flex-col lg:flex-row lg:justify-between gap-4 flex-1">
                                 <div>
                                     <p className="font-bold">
                                         <span className="font-medium">Name :</span> {user.displayName || "No Name"}
@@ -77,7 +77,7 @@ const UpdateProfile = () => {
                     </div>
                     <div className="shadow-2xl p-6 rounded-xl" data-aos="fade-up">
                         <form onSubmit={updateProfileBtn}>
-                            <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
@@ -86,17 +86,10 @@ const UpdateProfile = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span className="label-text">Image</span>
                                     </label>
-                                    <input type="email" placeholder="Email" name="email" className="input input-bordered" required />
+                                    <input type="text" placeholder="Image URL" name="image" className="input input-bordered" required />
                                 </div>
-                            </div>
-
-                            <div className="form-control mb-4">
-                                <label className="label">
-                                    <span className="label-text">Image</span>
-                                </label>
-                                <input type="text" placeholder="Image URL" name="image" className="input input-bordered" required />
                             </div>
 
                             <button type="submit" className="btn btn-primary bg-[#4b87fd] border-[#4b87fd] hover:bg-[#0356f9] text-white w-full">

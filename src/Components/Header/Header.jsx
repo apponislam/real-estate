@@ -72,12 +72,13 @@ const Header = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52">
                             {user ? links : links2}
                         </ul>
                     </div>
                     <Link to="/">
-                        <button className="btn btn-ghost text-3xl">Appon Luxury</button>
+                        <button className="btn btn-ghost text-3xl hidden md:block">Appon Luxury</button>
+                        <button className="btn btn-ghost text-xl block md:hidden">AL</button>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -97,9 +98,9 @@ const Header = () => {
                             </Link> */}
                         </div>
                     ) : (
-                        <div>
+                        <div className="flex items-center">
                             <Link to="/signin">
-                                <button className="btn mr-3 bg-[#2e3652] border-[#2e3652] hover:bg-[#0356f9] text-white">Sign In</button>
+                                <button className="btn mr-1 md:mr-3 bg-[#2e3652] border-[#2e3652] hover:bg-[#0356f9] text-white">Sign In</button>
                             </Link>
                             <Link to="/register">
                                 <button className="btn bg-[#4b87fd] border-[#4b87fd] hover:bg-[#0356f9] text-white">Sign Up</button>

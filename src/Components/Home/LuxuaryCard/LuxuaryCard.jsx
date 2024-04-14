@@ -13,7 +13,7 @@ const LuxuaryCard = ({ luxuary }) => {
                 <img src={image} className="w-full" />
                 <p className="bg-gray-950 absolute top-4 right-4 text-white p-2 rounded-md">{status}</p>
             </div>
-            <p className="font-semibold mb-3">Name: {estate_title}</p>
+            <p className="font-semibold mb-3">{estate_title}</p>
             <div className="flex items-center mb-4 text-green-600">
                 <div className="text-2xl mr-3">
                     <GiVillage />

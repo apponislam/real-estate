@@ -54,6 +54,7 @@ const AuthProvider = ({ children }) => {
                 toast.success("Login successfully");
                 console.log("Successfully logged");
             }
+
             setSuccessLogin(false);
         });
         return () => unSubscribe();

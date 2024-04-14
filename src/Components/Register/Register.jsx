@@ -66,12 +66,12 @@ const Register = () => {
                 <title>Sign Up | Appon Luxury</title>
             </Helmet>
             <div className="flex items-center justify-center min-h-screen">
-                <div className="hero-content flex-col w-1/4">
+                <div className="hero-content flex-col md:w-3/4 lg:w-1/2 2xl:w-1/4">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Register Page</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold">Register Page</h1>
                     </div>
                     <div className="card shrink-0 w-full shadow-2xl bg-gray-50 rounded-2xl">
-                        <form className="card-body pb-2" onSubmit={signUpBtn}>
+                        <form className="card-body p-4 pb-2 md:p-8 md:pb-2" onSubmit={signUpBtn}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -110,7 +110,7 @@ const Register = () => {
                                 <ToastContainer />
                             </div>
                         </form>
-                        <p className="pl-8 pb-6 label-text-alt">
+                        <p className="pl-4 md:pl-8 pb-6 label-text-alt">
                             Already have an account? Please
                             <span className="link link-hover text-[#0356f9]">
                                 <Link to="/signin"> Sign In</Link>

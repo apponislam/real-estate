@@ -11,10 +11,10 @@ const Profile = () => {
             <Helmet>
                 <title>Profile | Appon Luxury</title>
             </Helmet>
-            <div className="h-screen flex items-center justify-center">
-                <div className="shadow-2xl p-6 rounded-xl w-2/3 relative" data-aos="fade-down">
+            <div className="h-screen flex items-center justify-center mx-4 md:mx-0">
+                <div className="shadow-2xl p-4 md:p-6 rounded-xl w-full md:w-2/3 relative" data-aos="fade-down">
                     <div className="mb-4">
-                        <p className="font-bold text-2xl text-center">
+                        <p className="font-bold text-xl md:text-2xl text-center">
                             <span className="font-medium">Name :</span> {user.displayName || "No Name"}
                         </p>
                     </div>
@@ -23,7 +23,7 @@ const Profile = () => {
                             <img className="h-60 w-60 rounded-full" src={user.photoURL || "null.png"} />
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <p className="font-bold">
                                 <span className="font-medium">Email :</span> {user.email || "No Email"}
@@ -46,7 +46,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <Link to="/updateprofile">
-                        <div className="absolute text-2xl top-6 right-6 tooltip" data-tip="Update Your Profile">
+                        <div className="absolute text-2xl top-4 md:top-6 right-4 md:right-6 tooltip" data-tip="Update Your Profile">
                             <FaUserEdit />
                         </div>
                     </Link>

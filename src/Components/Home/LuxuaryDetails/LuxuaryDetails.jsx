@@ -18,8 +18,8 @@ const LuxuaryDetails = () => {
             <Helmet>
                 <title> {estate_title} | Appon Luxuary </title>
             </Helmet>
-            <div className="py-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 mx-3 md:mx-0">
+            <div className="py-10 md:py-20 mx-4 md:mx-4 xl:mx-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 xl:gap-12 mx-3 md:mx-0">
                     <div data-aos="fade-right">
                         <img src={image} className="w-full object-cover h-full" />
                     </div>

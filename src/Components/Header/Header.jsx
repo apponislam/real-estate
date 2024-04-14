@@ -10,7 +10,7 @@ const Header = () => {
             <div className="container mx-auto">
                 <div className="flex justify-between items-center p-2">
                     <div className="skeleton h-14 w-64"></div>
-                    <div className="flex items-center gap-2">
+                    <div className="items-center gap-2 hidden lg:flex">
                         <div className="skeleton h-9 w-20"></div>
                         <div className="skeleton h-9 w-20"></div>
                         <div className="skeleton h-9 w-20"></div>

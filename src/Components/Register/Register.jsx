@@ -48,7 +48,7 @@ const Register = () => {
                     .then(() => {
                         console.log("logged out after registration");
                         navigate("/signin");
-                        toast.success("registered successfully");
+                        // toast.success("registered successfully");
                     })
                     .catch((error) => {
                         console.log(error);

@@ -22,7 +22,9 @@ const SignIn = () => {
                 toast.success("login successfully");
             })
             .catch((error) => {
-                toast.error("Please enter correct email and password");
+                setTimeout(() => {
+                    toast.error("Please enter correct email and password");
+                }, 100); // Delay of 0 milliseconds
                 console.log(error);
                 setLoading(false);
             });
@@ -111,8 +113,8 @@ const SignIn = () => {
                         </div>
                     </div>
                 </div>
-                <ToastContainer />
             </div>
+            <ToastContainer />
         </div>
     );
 };

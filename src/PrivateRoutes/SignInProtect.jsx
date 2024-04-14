@@ -19,6 +19,11 @@ const SignInProtect = ({ children }) => {
         return children;
     }
 
+    // if (successLogin) {
+    //     toast.success("Login successfully");
+    //     console.log("Successfully logged");
+    // }
+
     return (
         <div>
             <Navigate to="/"></Navigate>

@@ -49,12 +49,14 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (mainUser) => {
             console.log(mainUser);
             setUser(mainUser);
-            setLoading(false);
+
             if (successLogin) {
-                toast.success("Login successfully");
+                setTimeout(() => {
+                    toast.success("Login successfully");
+                }, 100); // Delay of 0 milliseconds
                 console.log("Successfully logged");
             }
-
+            setLoading(false);
             setSuccessLogin(false);
         });
         return () => unSubscribe();

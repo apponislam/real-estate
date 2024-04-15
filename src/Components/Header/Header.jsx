@@ -35,6 +35,9 @@ const Header = () => {
             <li>
                 <NavLink to="/updateprofile">Update Profile</NavLink>
             </li>
+            <li>
+                <NavLink to="/aboutus">About Us</NavLink>
+            </li>
         </>
     );
 

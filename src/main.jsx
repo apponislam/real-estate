@@ -16,6 +16,7 @@ import Profile from "./Components/Profile/Profile.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LuxuaryDetails from "./Components/Home/LuxuaryDetails/LuxuaryDetails.jsx";
+import AboutUs from "./Components/AboutUs/AboutUs.jsx";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,14 @@ const router = createBrowserRouter([
                 element: (
                     <NonSignIn>
                         <Profile></Profile>
+                    </NonSignIn>
+                ),
+            },
+            {
+                path: "/aboutus",
+                element: (
+                    <NonSignIn>
+                        <AboutUs></AboutUs>
                     </NonSignIn>
                 ),
             },

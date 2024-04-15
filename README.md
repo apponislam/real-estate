@@ -14,3 +14,6 @@ Currently, two official plugins are available:
 -   [Prop Types](https://www.npmjs.com/package/prop-types) uses for Prop Type Validation
 -   [React Icons](https://react-icons.github.io/react-icons/) uses for use react icons on project
 -   [AOS Libary](https://michalsnik.github.io/aos/) uses for use animations on scroll.
+-   [React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner) uses for use loading spinner
+-   [React Helmet Async](https://www.npmjs.com/package/react-helmet-async) uses for use dynamic title
+-   [React Toastify](https://www.npmjs.com/package/react-toastify) uses for use Toast when something working or not

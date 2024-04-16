@@ -25,10 +25,10 @@ const Register = () => {
             toast.error("Password must be at least 6 characters");
             return;
         }
-        // if (!/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
-        //     toast.error("Password must contain at least one uppercase and one lowercase letter");
-        //     return;
-        // }
+        if (!/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
+            toast.error("Password must contain at least one uppercase and one lowercase letter");
+            return;
+        }
 
         createUser(email, password)
             .then((result) => {

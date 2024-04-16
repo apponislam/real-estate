@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 const AboutUs = () => {
     const textStyle = {
         WebkitTextStroke: "2px black",
@@ -7,6 +9,9 @@ const AboutUs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>About Us | Appon Luxury</title>
+            </Helmet>
             <div className="relative">
                 <img className="opacity-50 w-full h-80 object-cover" src="/aboutus.jpg" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -25,7 +30,7 @@ const AboutUs = () => {
                             Step into a realm of unparalleled luxury, where opulence <br className="hidden sm:block" /> meets sophistication in every lavish estate.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                         <div className="flex flex-col lg:flex-row items-center justify-center gap-5 border rounded-2xl border-[#54595f] p-12 shadow-2xl">
                             <img className="w-24 h-24" src="/RoyalResidence.png" />
                             <div>

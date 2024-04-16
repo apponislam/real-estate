@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
 
 const SignInProtect = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
+    const location = useLocation();
 
     if (loading) {
         return (
@@ -26,7 +27,7 @@ const SignInProtect = ({ children }) => {
 
     return (
         <div>
-            <Navigate to="/"></Navigate>
+            <Navigate to={location?.state ? location.state : "/"}></Navigate>
         </div>
     );
 };

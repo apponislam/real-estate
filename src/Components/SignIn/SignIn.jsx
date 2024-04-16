@@ -2,13 +2,15 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
     const { signInUser, googleSignIn, setSuccessLogin, githubSignIn, setLoading } = useContext(AuthContext);
+    const location = useLocation();
+    console.log("Location In Login Page", location);
 
     const logInBtn = (e) => {
         e.preventDefault();
@@ -20,6 +22,7 @@ const SignIn = () => {
                 console.log(result.user);
                 setSuccessLogin(true);
                 toast.success("login successfully");
+                <Navigate to={location?.state ? location.state : "/"}></Navigate>;
             })
             .catch((error) => {
                 setTimeout(() => {

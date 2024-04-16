@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { GiVillage } from "react-icons/gi";
 import { useLoaderData, useParams } from "react-router-dom";
 import "animate.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LuxuaryDetails = () => {
     const luxuaries = useLoaderData();
@@ -65,6 +67,7 @@ const LuxuaryDetails = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

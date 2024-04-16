@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const NonSignIn = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location);
 
     if (loading) {
         return (
@@ -23,7 +25,7 @@ const NonSignIn = ({ children }) => {
 
     return (
         <div>
-            <Navigate to="/signin"></Navigate>
+            <Navigate state={location.pathname} to="/signin"></Navigate>
             <ToastContainer />
         </div>
     );

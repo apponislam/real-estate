@@ -11,33 +11,25 @@ const UpdateProfile = () => {
     const updateProfileBtn = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
-        const newemail = e.target.email.value;
         const image = e.target.image.value;
         const updatedProfileData = {
             displayName: name,
-            email: newemail,
-            // phoneNumber: number,
             photoURL: image,
         };
-        console.log(name, newemail, image);
+        console.log(name, image);
         updateUser(user, updatedProfileData)
             .then(() => {
                 console.log("profile updated successfully");
-                toast.success("profile updated successfully");
-                // sendEmailVerification(user).then(() => {
-                //     updateEmail(user, newemail)
-                //         .then(() => {
-                //             console.log("profile email update successfully");
-                //         })
-                //         .catch((error) => {
-                //             console.log(error);
-                //         });
-                // });
+                setTimeout(() => {
+                    toast.success("Profile updated successfully");
+                }, 100);
                 setLoading(false);
             })
             .catch((err) => {
                 console.log(err);
-                toast.error("profile update failed");
+                setTimeout(() => {
+                    toast.error("Profile update failed");
+                }, 100);
                 setLoading(false);
             });
     };
@@ -99,9 +91,7 @@ const UpdateProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="z-50">
-                <ToastContainer />
-            </div>
+            <ToastContainer />
         </div>
     );
 };
